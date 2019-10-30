@@ -1,2 +1,2 @@
 # notes
-technical nots
+technical notes
