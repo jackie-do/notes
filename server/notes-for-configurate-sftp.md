@@ -29,3 +29,14 @@ sudo chmod -R 755 .ssh/
 ```bash
 sftp  -oPort=2222  -oIdentityFile=~/.ssh/id_rsa test@127.0.0.1
 ```
+
+
+### Check log when ssh or sftp
+**In the file /etc/ssh/sshd_config, change value of key LogLevel to VERBOSE, and check log in /var/log/auth.log**
+```bash
+# Update ssh config to show log
+sudo vim /etc/ssh/sshd_config # LogLevel VERBOSE 
+sudo services sshd restart
+# Check log
+tail -f /var/log/auth.log 
+```
