@@ -19,7 +19,7 @@ sudo gpasswd -d test sftponly
 sudo chown root:root [ChrootDirectory]
 sudo chmod 755 [ChrootDirectory]
 ```
-**.ssh directory must be belongs to sftp user and sftp group, with permission 775 **
+** .ssh directory must be belongs to sftp user and sftp group, with permission 775 **
 ```bash
 sudo chown -R test:sftponly .ssh/
 sudo chmod -R 755 .ssh/
