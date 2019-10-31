@@ -12,8 +12,9 @@ sudo gpasswd -d test sftponly
 ```
 
 ### Allowed permissions of directories (when sftp to)
-**User: test, Sftp group: sftponly**
-*Home directory and parent directory of home must be belongs to root user with 755 permission*
+*User: test, Sftp group: sftponly*
+
+**Home directory and parent directory of home must be belongs to root user with 755 permission**
 ```bash
 sudo chown root:root [ChrootDirectory]
 sudo chmod 755 [ChrootDirectory]
