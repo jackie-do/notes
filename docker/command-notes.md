@@ -38,7 +38,7 @@ docker exec -it [container] /bin/sh
 docker run -it [image]
 ```
 
-## 2) Data volume
+### Data volume
 * **Run a docker with mounted volume**
 
 *options -v = --volume*
