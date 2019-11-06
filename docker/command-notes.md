@@ -1,8 +1,8 @@
 # Docker command notes
 
 ## 1) Basic
-### Work with images and container
-* **Run an image**
+### Work with container
+* **Run an container**
 ```bash
 # run (will pull image if dont exist in local)
 docker run [image] [following commands]
