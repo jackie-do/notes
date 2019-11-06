@@ -40,6 +40,7 @@ docker run -it [image]
 
 ## 2) Data volume
 * **Run a docker with mounted volume**
+
 *options -v = --volume*
 ```bash
 # syntax
@@ -63,7 +64,7 @@ docker inspect [container] # check key 'Mounts'
 "Mounts": [
   {
       "Type": "bind",
-      "Source": "/Users/huydo/Desktop/projects/learning/docker/host/dir",
+      "Source": "/Users/user_name/projects/docker/host/dir",
       "Destination": "/data",
       "Mode": "",
       "RW": true,
