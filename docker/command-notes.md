@@ -29,7 +29,8 @@ dockerrm [container]
 ```
 
 * **Access into container**
-*options -i = --interactive and -t = --tty*
+
+  *options -i = --interactive and -t = --tty*
 ```bash
 # Access to an active container, start in a shell
 docker exec -it [container] /bin/sh
