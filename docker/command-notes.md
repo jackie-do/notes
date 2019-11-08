@@ -86,7 +86,7 @@ docker run --name BB --volumes-from box alpine ls /share-vol
 ```
 
 ## 2) Distributing Images
-*A registry is a service that stores, manages, and distributes images. We can use public services like [Docker Hub](https://hub.docker.com)(default), [Quay](https://quay.io) or using your own host*
+> *A registry is a service that stores, manages, and distributes images. We can use public services like [Docker Hub](https://hub.docker.com)(default), [Quay](https://quay.io) or using your own host*
 
 ### Using a local registry
 * ** Structure of image name **
@@ -109,10 +109,25 @@ docker push localhost:5000/comps/prod/nginx:1.15
 
 # Create a new image from nginx image with a local registry without version (= latest)
 docker tag nginx localhost:5000/comps/prod/nginx
-# Push this image to the local registry, all the layers are already on local registry, just create a new name. 
+# Push this image to the local registry, all the layers are already on local registry,
+# just create a new image from exiting referrence
 docker push localhost:5000/comps/prod/nginx
 ```
+notes: some registries requires authentication `docker login`
 
+### Distributing images
+```bash
+# Commits the changes of the container layer into a new image
+docker commit [container]
+# Saves one or  more images to a TAR archive
+docker save --output [filename_path] IMAGE1 IMAGE2 IMAGEn
+# Load a tar image into the local repository
+docker load -i [filename_path] 
+# exports a container's filesystem as a tar archive = an image
+docker export --output [filename_path] [container]
+# import an image from an exported Tar archive
+docker import [filename_path]
+```
 
 
 
