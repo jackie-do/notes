@@ -128,7 +128,8 @@ docker export --output [filename_path] [container]
 # import an image from an exported Tar archive
 docker import [filename_path]
 ```
-
+### Relationship of states between containers and image
+![](assets/images/states_between_images_and_containers.png?raw=true)
 
 
 ## 3) Basic
