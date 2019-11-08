@@ -86,10 +86,11 @@ docker run --name BB --volumes-from box alpine ls /share-vol
 ```
 
 ## 2) Distributing Images
-*A registry is a service that stores, manages, and distributes images. We can use public services like [Docker Hub](https://hub.docker.com)(*default), [Quay](https://quay.io) or using your own host*
+*A registry is a service that stores, manages, and distributes images. We can use public services like [Docker Hub](https://hub.docker.com)(default), [Quay](https://quay.io) or using your own host*
 
 ### Using a local registry
 * ** Structure of image name **
+
 `[registry/]image_name[:tag]`
 
 *If you use `docker pull nginx`, it is equal `docker pull docker.io/alpine:latest`*
