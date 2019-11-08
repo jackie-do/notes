@@ -85,4 +85,34 @@ docker run --name AA --volumes-from box alpine touch /share-vol/wine
 docker run --name BB --volumes-from box alpine ls /share-vol
 ```
 
-## 1) Basic
+## 2) Distributing Images
+*A registry is a service that stores, manages, and distributes images. We can use public services like [Docker Hub](https://hub.docker.com)(*default), [Quay](https://quay.io) or using your own host*
+
+### Using a local registry
+* ** Structure of image name **
+`[registry/]image_name[:tag]`
+
+*If you use `docker pull nginx`, it is equal `docker pull docker.io/alpine:latest`*
+
+```bash
+# Start a local registry
+docker pull registry
+docker run -p 5000:5000 registry # start a registry host at port 5000
+
+# Using nginx image for demo
+docker pull nginx
+# Create a new image from nginx image with a local registry and version
+docker tag nginx localhost:5000/comps/prod/nginx:1.15
+# Push this image to the local registry
+docker push localhost:5000/comps/prod/nginx:1.15
+
+# Create a new image from nginx image with a local registry without version (= latest)
+docker tag nginx localhost:5000/comps/prod/nginx
+# Push this image to the local registry, all the layers are already on local registry, just create a new name. 
+docker push localhost:5000/comps/prod/nginx
+```
+
+
+
+
+## 3) Basic
