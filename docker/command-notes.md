@@ -132,7 +132,8 @@ docker import [filename_path]
 ![](assets/images/states_between_images_and_containers.png?raw=true)
 
 
-## 3) Connecting containers
+## 3) Connecting containers with networks
+### Default networks
 > *There are three kinds of networks to manage communications between containers and the hosts, namely `bridge`, `host` and `none`*
 
 ```bash
@@ -143,9 +144,11 @@ NETWORK ID          NAME                DRIVER              SCOPE
 4705332cb39e        host                host                local
 75ab6cbbbbac        none                null                local
 ```
+
+#### The `bridge` network
 > By default, every container is connected to the `bridge` network upon creation. In mode `bridge`, every container is allocated a virtual interface as well as a private IP address, and the traffic going through the interface is bridged to the host's `docker0` interface. Containers within the same bridge network can also connect to each other via their IP address.
 
-#### Example: check connect between containers in same `bridge` network
+**Example:**
 *command `nc -lp 5000` to listen inbound connections in port 5000*
 ```bash
 # Create one container that's feeding a short message over port 5000, and observe its configuration
@@ -162,5 +165,41 @@ docker run -t busybox telnet 172.17.0.2 5000
 #Connection closed by foreign host
 
 ```
+
+#### The `host` network
+> The `host` network works as it's name suggets. Every connected container shares the host's network.
+
+**Example:**
+```bash
+docker run -d --expose 5000 --network host busybox /bin/sh -c "echo im a container | nc -lp 5000"
+# telnet localhost 5000
+```
+
+#### The `none` network
+> The `none` network is a logically air-gapped box. Regardless of ingress or egress, traffic is isolated inside as there's no network interface attached to the container.
+### Custom networks
+**Create a custom network**
+
+```bash
+# Command to create a network
+docker network create [NW-name]
+```
+
+#### Example: check connect between containers in a custome network
+```bash
+# Create a network called 'room'
+docker network create room
+
+# run a container with the name 'sleeper' and an alias 'dad' in the network 'room'
+docker run -d --network room --network-alias \
+ --name sleeper busybox sleep 60
+
+# ping the container with its name 'sleeper' from another container
+docker run --network room busybox ping -c 1 sleeper
+
+# ping the container with its alias 'dad', it also works
+docker run --network room apline ping -c 1 dad
+```
+
 
 ## 4) Basic
