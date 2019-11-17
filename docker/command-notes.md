@@ -1,9 +1,11 @@
 # Docker command notes
 
-> Table of contents
-> * [3) Connecting containers with networks](#3-connecting-containers)
+> **Table of contents**
+> * [1) Basic Commands](#1-basic)
+> * [2) Distributing Images](#2-distributing-images)
+> * [3) Connecting Conntainers With Networks](#3-connecting-containers)
 
-## 1 - Basic
+## 1 - Basic Commands<a name="1-basic">
 ### Work with container
 * **Run an container**
 ```bash
@@ -88,7 +90,7 @@ docker run --name AA --volumes-from box alpine touch /share-vol/wine
 docker run --name BB --volumes-from box alpine ls /share-vol
 ```
 
-## 2 - Distributing Images
+## 2 - Distributing Images <a name="2-distributing-images">
 > *A registry is a service that stores, manages, and distributes images. We can use public services like [Docker Hub](https://hub.docker.com)(default), [Quay](https://quay.io) or using your own host*
 
 ### Using a local registry
@@ -135,7 +137,7 @@ docker import [filename_path]
 ![](assets/images/states_between_images_and_containers.png?raw=true)
 
 
-## 3) Connecting containers with networks <a name="3-connecting-containers">
+## 3) Connecting Containers With Networks <a name="3-connecting-containers">
 ### Default networks
 > *There are three kinds of networks to manage communications between containers and the hosts, namely `bridge`, `host` and `none`*
 
