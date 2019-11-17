@@ -23,6 +23,7 @@
 > * State Normalization
 > * More...
 
+---
 
 > **Table of contents**
 > * [1) React Basics](#1)
