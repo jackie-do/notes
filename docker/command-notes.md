@@ -1,7 +1,7 @@
 # Docker command notes
 
 > Table of contents
-> * [3) Connecting containers with networks](#connecting-containers)
+> * [3) Connecting containers with networks](#3-connecting-containers)
 
 ## 1 - Basic
 ### Work with container
@@ -135,7 +135,7 @@ docker import [filename_path]
 ![](assets/images/states_between_images_and_containers.png?raw=true)
 
 
-## 3) Connecting containers with networks <a name="connecting-containers">
+## 3) Connecting containers with networks <a name="3-connecting-containers">
 ### Default networks
 > *There are three kinds of networks to manage communications between containers and the hosts, namely `bridge`, `host` and `none`*
 
