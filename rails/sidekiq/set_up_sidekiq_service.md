@@ -1,4 +1,4 @@
-> Generate from sidekiq 6
+> Generate from sidekiq 6 `bundle exec cap $STAGE_NAME sidekiq:install`
 
 
 ```bash
