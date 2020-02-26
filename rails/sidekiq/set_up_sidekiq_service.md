@@ -20,6 +20,11 @@ ExecStop=/bin/kill -TERM $MAINPID
 RestartSec=1
 Restart=on-failure
 
+StandardOutput=file:/home/deploy/bdc_center/back-end/current/log/sidekiq.log
+StandardError=file:/home/deploy/bdc_center/back-end/current/log/sidekiq.log
+
+
+
 SyslogIdentifier=sidekiq
 
 
