@@ -17,6 +17,7 @@ Swap:             0           0           0
 
 
 
+
 #### 2) Check How much memory does an instance of your Rails application generally use? 
 ##### `sudo passenger-memory-stats`
 
@@ -38,3 +39,15 @@ PID    VMSize     Private  Name
 
 ```
 > Currently, we have 4 running processes (AppPreloader) for Rail App. It consumes around 100 Mb per process (take a look on "private" tab))
+
+
+
+#### 3) Increase MaxPoolSize of Passenger
+> (1000Mb * 0.75) / 100Mb = 7.5 = 7 (more processes)
+> We need to spend a little bit of Ram for other applications (can't use all of 1000Mb of Ram)
+
+```
+# Reconfig passenger in nginx config folder (Passenger using with Nginx)
+passenger_max_pool_size 11;
+```
+[(Read for more info)](https://www.phusionpassenger.com/library/config/nginx/optimization/)
