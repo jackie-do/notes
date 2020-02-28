@@ -13,7 +13,7 @@ High:             0           0           0
 Swap:             0           0           0
 
 ```
-> Currently we are have more ~1000 Mb of Ram to use 
+> Currently we are have ~1100 Mb of available Ram to use 
 
 
 
@@ -42,12 +42,15 @@ PID    VMSize     Private  Name
 
 
 
-#### 3) Increase MaxPoolSize of Passenger
-> (1000Mb * 0.75) / 100Mb = 7.5 = 7 (more processes)
+#### 3) Increase MaxPoolSize of Passenger (Passenger using with Nginx)
+> (1100Mb * 0.75) / 100Mb = 8.25 = 8 (more processes)
 > We need to spend a little bit of Ram for other applications (can't use all of 1000Mb of Ram)
 
 ```
-# Reconfig passenger in nginx config folder (Passenger using with Nginx)
-passenger_max_pool_size 11;
+# existing config for rails app (`/etc/nginx/sites-enabled/*`)
+passenger_min_instances 4;
+
+# Reconfig passenger in config file in nginx config folder (`/etc/nginx/conf.d/*`) ( 4 begin processes + 8 more processes )
+passenger_max_pool_size 12;
 ```
 [(Read for more info)](https://www.phusionpassenger.com/library/config/nginx/optimization/)
