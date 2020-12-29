@@ -29,3 +29,28 @@ log ra được `undefined` cho biến name và raise `ReferenceError` cho biế
 
 câu hỏi phụ: khi nào declaration diễn ra, khi nào việc assignment diễn ra 
 
+##### 3) Sử dụng từ khóa `this` trong arrow function lên lưu ý điều gì ? 
+
+```js
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius
+};
+
+shape.diameter();
+shape.perimeter();
+```
+
+*Đáp án*
+`20` và `NaN`
+Lưu ý rằng giá trị của diameter() là một hàm thông thường, trong khi giá trị của perimeter() là một arrow function.
+
+> Với các arrow function, không giống như các hàm thông thường, từ khóa this ở đây là đề cập đến phạm vi hiện tại của nó (nơi nó được gọi).
+
+> Điều này có nghĩa là khi chúng ta gọi đến permeter(), nó không đề cập đến đối tượng shape, mà là phạm vi xung quanh của nó (ví dụ như đề cập đến window)
+> Kết quả là không có giá trị radius trên đối tượng đó, nó trả về undefined.
+
+
