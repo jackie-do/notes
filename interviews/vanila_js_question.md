@@ -54,4 +54,23 @@ Lưu ý rằng giá trị của diameter() là một hàm thông thường, tron
 > Điều này có nghĩa là khi chúng ta gọi đến permeter(), nó không đề cập đến đối tượng shape, mà là phạm vi xung quanh của nó (ví dụ như đề cập đến window)
 > Kết quả là không có giá trị radius trên đối tượng đó, nó trả về undefined.
 
+##### 4) Giải thích việc các object trong JS tương tác bằng tham chiếu với đoạn code bên dưới ?
 
+```js
+let c = { greeting: "Hey!" };
+let d;
+
+d = c;
+c.greeting = "Hello";
+console.log(d.greeting);
+
+```
+A: Hello
+B: Hey
+C: undefined
+D: ReferenceError
+E: TypeError
+
+
+*Đáp án*
+A. in ra `Hello`
