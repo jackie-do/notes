@@ -15,6 +15,7 @@ sayHi();
 ```
 
 **Đáp án**
+
 log ra được `undefined` cho biến name 
 và raise `ReferenceError` cho biến age 
 
