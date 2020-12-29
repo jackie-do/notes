@@ -1,6 +1,11 @@
 ## Bộ câu hỏi phỏng vấn JS thuần 
 ### I) Các câu hỏi lý thuyết:
 ##### 1) Hoisting trong JS là gì ?
+*Đáp án*
+  hoisting là cơ chế của JavaScript cho phép các khai báo biến hoặc hàm được dời lên trên đầu phạm vi của chúng trước khi thực thi đoạn code.
+
+  Điều này có nghĩa là bất kể hàm và biến được khai báo ở đâu, chúng đều được chuyển lên đầu phạm vi của chúng, bất kể là toàn cục hay cục bộ.
+
 ##### 2) Kết quả của đoạn code bên dưới là gì? 
 
 ```js
@@ -14,7 +19,7 @@ function sayHi() {
 sayHi();
 ```
 
-**Đáp án**
+*Đáp án*
 
 log ra được `undefined` cho biến name 
 và raise `ReferenceError` cho biến age 
