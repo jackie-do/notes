@@ -45,6 +45,7 @@ shape.perimeter();
 ```
 
 *Đáp án*
+
 `20` và `NaN`
 Lưu ý rằng giá trị của diameter() là một hàm thông thường, trong khi giá trị của perimeter() là một arrow function.
 
