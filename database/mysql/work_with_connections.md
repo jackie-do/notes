@@ -6,14 +6,12 @@
 SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST WHERE DB = "<database_name>";
 ```
 
-**Show process list in a database server
+**Show process list in a database server**
+```bash
+show processlist
+```
 
 ### 2. Show connections 
-
-**Show connected connections in database server**
-```
-show status like 'Threads_connected';
-```
 
 **Show all info related to connections**
 ```bash
