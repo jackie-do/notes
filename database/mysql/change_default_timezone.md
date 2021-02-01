@@ -1,4 +1,4 @@
-### Check current Timezone of Mysql
+### 1. Check current Timezone of Mysql
 ```
 # Go to Mysql console
 mysql -u root -p
@@ -8,7 +8,8 @@ SELECT @@global.time_zone, @@session.time_zone;
 
 
 ```
-#### Change Session Timezone and Default Timezone
+
+### 2. Change Session Timezone and Default Timezone
 ```
 # Change default timezone
 SET GLOBAL time_zone = "America/New_York";
@@ -17,8 +18,10 @@ SET GLOBAL time_zone = "America/New_York";
 SET time_zone = "Asia/Tokyo";
 ```
 
+
+
 > Note: in the case show ERROR: ilegal Timezone 
-### Install Timezone data in terminal shell 
+### Install Timezone data in terminal shell (optional in error case) 
 ```
 
 mysql_tzinfo_to_sql /usr/share/zoneinfo
