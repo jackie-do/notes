@@ -32,3 +32,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p mysql
 ```
 
 
+### Last option (using number instead of string)
+```
+# replace "Asia/Tokyo" with "+09:00"
+```
