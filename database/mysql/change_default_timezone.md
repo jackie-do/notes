@@ -1,8 +1,9 @@
 ### Check current Timezone of Mysql
 ```
-#### Go to Mysql console
+# Go to Mysql console
 mysql -u root -p
-# input password 
+
+# Check timezones
 SELECT @@global.time_zone, @@session.time_zone;
 
 
