@@ -33,6 +33,12 @@ password:
 ```
 mysql --host=localhost --user=root --password=password -D [local_database] < exported_database.sql
 ```
+
+**import to mysql in docker container**
+```
+docker exec -i [container name] mysql --host=localhost --user=root --password=password -D [local_database] < exported_database.sql
+```
+
 ### Work with database
 *access database command*
 ```sql
