@@ -29,7 +29,10 @@ mysql -h [localhost] -u root -D [local_database] -p < exported_database.sql
 ```
 password: 
 
-
+**import by passing password directly**
+```
+mysql --host=localhost --user=root --password=password -D [local_database] < exported_database.sql
+```
 ### Work with database
 *access database command*
 ```sql
