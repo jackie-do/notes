@@ -6,6 +6,5 @@ ActiveRecord::Base.connection_pool.stat
 
 **List current connectinons**
 ```bash
-# ActiveRecord::Base.connection_pool.connections
-
+ActiveRecord::Base.connection_pool.connections
 ```
