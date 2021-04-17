@@ -5,7 +5,8 @@
 passenger-status
 # 
 sudo passenger-status
-```
+
+
 Version : 5.3.7
 Date    : 2021-04-17 14:11:11 +0900
 Instance: JzAUODun (nginx/1.14.0 Phusion_Passenger/5.3.0)
@@ -33,3 +34,6 @@ Requests in top-level queue : 0
   * PID: 4865    Sessions: 1       Processed: 104     Uptime: 3d 18h 34m 31s
     CPU: 1%      Memory  : 323M    Last used: 3d 1
     Shutting down...
+    
+```
+
