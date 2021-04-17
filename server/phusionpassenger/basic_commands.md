@@ -37,3 +37,36 @@ Requests in top-level queue : 0
     
 ```
 
+**Show memory of passenger**
+```bash
+passenger-memory-stats
+#
+sudo env PATH=$PATH `which passenger-memory-stats`
+
+Version: 5.3.7
+Date   : 2021-04-17 14:20:14 +0900
+------------- Apache processes -------------
+*** WARNING: The Apache executable cannot be found.
+Please set the APXS2 environment variable to your 'apxs2' executable's filename, or set the HTTPD environment variable to your 'httpd' or 'apache2' executable's filename.
+
+
+--------- Nginx processes ---------
+PID   PPID  VMSize   Private  Name
+-----------------------------------
+2429  1     75.3 MB  0.6 MB   nginx: master process /opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf
+2437  2429  79.0 MB  2.5 MB   nginx: worker process
+2439  2429  78.7 MB  2.3 MB   nginx: worker process
+### Processes: 3
+### Total private dirty RSS: 5.39 MB
+
+
+----- Passenger processes ------
+PID   VMSize     Private   Name
+--------------------------------
+1469  1905.4 MB  553.9 MB  Passenger AppPreloader: /home/ec2-user/staging/back-end/current (forking...)
+2415  388.5 MB   2.2 MB    Passenger watchdog
+2418  1171.7 MB  8.9 MB    Passenger core
+### Processes: 3
+### Total private dirty RSS: 564.96 MB
+
+```
