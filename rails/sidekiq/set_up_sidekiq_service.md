@@ -14,6 +14,7 @@ After=syslog.target network.target
 [Service]
 Type=simple
 Environment=RAILS_ENV=production
+Environment=SYSTEMD_LOG_LEVEL=debug
 WorkingDirectory=/home/deploy/bdc_center/back-end/current
 
 #ExecStart=/usr/local/bin/bundler exec sidekiq -e production
