@@ -61,3 +61,8 @@ systemctl start sidekiq
 systemctl restart sidekiq
 systemctl kill -s TSTP sidekiq # quiet
 ```
+
+## 3) Check logs
+```bash
+sudo vim /var/log/syslog
+```
