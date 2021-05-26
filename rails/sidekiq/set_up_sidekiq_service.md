@@ -42,8 +42,10 @@ WantedBy=default.target
 ## Run as user ##
 systemctl --user enable sidekiq
 
+# reload after updating
+systemctl --user daemon-reload
+systemctl --user restart sidekiq
 systemctl --user status sidekiq
-systemctl --user start sidekiq
 
 
 ## Run as system ##
