@@ -1,5 +1,9 @@
+## 1) Create service file
 > Generate from sidekiq 6 `bundle exec cap $STAGE_NAME sidekiq:install`
 
+in path `/home/deploy/.config/systemd/user/sidekiq.service` (run as user scope)
+
+or in path `/lib/systemd/system` (run as system scope)
 
 ```bash
 #/home/deploy/.config/systemd/user/sidekiq.service
@@ -17,7 +21,7 @@ ExecStart=/home/deploy/.rbenv/bin/rbenv exec bundler exec sidekiq -e production
 ExecReload=/bin/kill -TSTP $MAINPID
 ExecStop=/bin/kill -TERM $MAINPID
 
-RestartSec=1
+RestartSec=5
 Restart=on-failure
 
 StandardOutput=file:/home/deploy/bdc_center/back-end/current/log/sidekiq.log
@@ -30,4 +34,25 @@ SyslogIdentifier=sidekiq
 
 [Install]
 WantedBy=default.target
+```
+
+
+## 2) Enable service
+```bash
+## Run as user ##
+systemctl --user enable sidekiq
+
+systemctl --user status sidekiq
+systemctl --user start sidekiq
+
+
+## Run as system ##
+systemctl enable sidekiq
+
+
+# others commnad
+systemctl status sidekiq
+systemctl start sidekiq
+systemctl restart sidekiq
+systemctl kill -s TSTP sidekiq # quiet
 ```
