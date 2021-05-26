@@ -2,7 +2,7 @@
 
 
 ```bash
-#/home/deploy/.config/systemd/user
+#/home/deploy/.config/systemd/user/sidekiq.service
 [Unit]
 Description=sidekiq for bdc_center (staging)
 After=syslog.target network.target
