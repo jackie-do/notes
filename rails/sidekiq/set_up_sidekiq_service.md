@@ -18,6 +18,8 @@ Environment=SYSTEMD_LOG_LEVEL=debug
 WorkingDirectory=/home/deploy/bdc_center/back-end/current
 
 #ExecStart=/usr/local/bin/bundler exec sidekiq -e production
+# For rben or rvm
+#ExecStart=/bin/bash -lc 'bundle exec sidekiq -e production'
 ExecStart=/home/deploy/.rbenv/bin/rbenv exec bundler exec sidekiq -e production
 ExecReload=/bin/kill -TSTP $MAINPID
 ExecStop=/bin/kill -TERM $MAINPID
