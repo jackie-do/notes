@@ -1,6 +1,6 @@
 
 ### 1. Set up a Site Enabled
-`/etc/nginx/sites-enabled/default`
+file `/etc/nginx/sites-enabled/default`
 ```bash
 server {
   listen 80 default_server;
@@ -15,17 +15,17 @@ server {
   listen 443 ssl;
   listen [::]:443 ssl;
 
-  server_name ohmytest.online;
-  root /home/deploy/bdc_center/back-end/current/public;
+  server_name your_domain;
+  root /home/user/app/back-end/current/public;
 
   # SSL Config
   ssl on;
-  ssl_certificate /home/deploy/certificate-ssl/ohmytest_online_chain.crt;
-  ssl_certificate_key /home/deploy/certificate-ssl/ohmytest_tld.key;
+  ssl_certificate /path/to/your_domain_bunlde.crt;
+  ssl_certificate_key /path/to/your_domain_tld.key;
 
   # Set up Nginx logs
-  # access_log /home/deploy/bdc_center/back-end/current/log/nginx.access.log;
-  # error_log /home/deploy/bdc_center/back-end/current/log/nginx.error.log;
+  # access_log /home/user/app/back-end/current/log/nginx.access.log;
+  # error_log /home/user/app/back-end/current/log/nginx.error.log;
 
   # Enable Passenger Server
   passenger_enabled on;
@@ -33,7 +33,7 @@ server {
   passenger_min_instances 4;
 
   location /cable {
-    passenger_app_group_name bdc_center_websocket;
+    passenger_app_group_name app_websocket;
     passenger_force_max_concurrent_requests_per_process 0;
   }
 
@@ -49,3 +49,15 @@ server {
 
 ```
 
+
+### 2. Config map Passenger to Nginx
+file `/etc/nginx/conf.d/mod-http-passenger.conf`
+
+```bash
+### Begin automatically installed Phusion Passenger config snippet ###
+passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+passenger_ruby /home/user/.rbenv/shims/ruby;
+passenger_max_pool_size 8;
+### End automatically installed Phusion Passenger config snippet ###
+
+```
