@@ -4,6 +4,7 @@
 sudo yum install -y gcc libstdc++-devel gcc-c++ fuse fuse-devel curl-devel libxml2-devel mailcap automake openssl-devel
 ```
 ### Compile from master via the following commands
+> Using `s3fs-fuse` to mount and sync S3 bucket 
 ```
 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
 cd s3fs-fuse
