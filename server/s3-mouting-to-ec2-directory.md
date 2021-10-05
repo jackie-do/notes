@@ -18,17 +18,17 @@ sudo make install
 sudo echo AWS_ACCESS_KEY_ID:AWS_SECRET_ACCESS_KEY > /etc/passwd-s3fs
 sudo chmod 600 /etc/passwd-s3fs
 ```
-### Mount your S3 Bucket: (wj-coral)
+### Mount your S3 Bucket: (your_bucket)
 ```
-sudo mkdir /mnt/s3_wj-coral
+sudo mkdir /path/your_local_directory
 # Options
 # - allow_other options to allow other users to access the file
 # - mp_umask=022 equal to 'chmod 755' command and this is required for sshd to chroot_directory
-sudo s3fs wj-coral /mnt/s3_wj-coral -o passwd_file=/etc/passwd-s3fs -o allow_other -o mp_umask=022
+sudo s3fs your_bucket /path/your_local_directory -o passwd_file=/etc/passwd-s3fs -o allow_other -o mp_umask=022
 ```
 ### Set automatically mount S3 bucket on reboot
 ```
 sudo nano /etc/fstab
 # Add this line
-wj-coral /mnt/s3_wj-coral fuse.s3fs allow_other,mp_umask=022 0 0
+your_bucket /path/your_local_directory fuse.s3fs allow_other,mp_umask=022 0 0
 ```
