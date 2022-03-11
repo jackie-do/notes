@@ -111,22 +111,22 @@ end
 
 - Tính hiệu quả khi đánh index (B-tree) trên columns. Giả sử ta có table `peoples` với column `id`, `name`, `email` nếu ta đánh index trên column `name` thì những cú pháp nào sẽ tận dụng đc index.
 ```SQL
-; case 1
+-- case 1
 SELECT id, email
 FROM people
 WHERE name LIKE '%searched_name%'
 
-; case 2
+-- case 2
 SELECT id, email
 FROM people
 WHERE name LIKE 'searched_name%'
 
-; case 3
+-- case 3
 SELECT id, email
 FROM people
 WHERE name LIKE '%searched_name'
 
-; case 4
+-- case 4
 SELECT id, email
 FROM people
 WHERE name LIKE 'searched_name'
