@@ -1,6 +1,9 @@
 Câu hỏi chung:
 **Ruby**
 - `require` và `load` khác nhau thế nào trong Ruby?
+> `require` sẽ đọc và load file được gọi một lần duy nhất. Ở những lần sau nó sẽ kiểm trả lại file đã được gọi chưa là lấy kết quả của lần gọi trước được lưu trong bộ nhớ nếu có.
+> `load` sẽ đọc và load file được gọi mỗi khi file đó được chạy
+
 - class methods là gì? instance methods là gì?
 - Trong ruby có hỗ trợ đa kế thừa không? Mixin là gì ?
 - `include`, `extend`, `prepend` khác nhau thế nào trong Ruby?
@@ -40,4 +43,11 @@ end
 (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN , SELF JOIN)
 - Để viết các câu SQL phức tạp mà ActiveRecord không support đủ thì ngoại trừ viết string query thì còn có những gem nào hỗ trợ không?
 - Khác biệt giữa TRUNCATE và DELETE ALL trong database là gì?
+- Tính hiệu quả khi đánh index trên columns. Giả sử ta có table `peoples` với column `id`, `name`, `email` nếu ta đánh index trên column `name` thì những cú pháp nào sẽ tận dụng đc index 
+```SQL
+; case 1
+SELECT id, email
+FROM people
+WHERE name LIKE ''
+```
 - Một bài toán Design Database
