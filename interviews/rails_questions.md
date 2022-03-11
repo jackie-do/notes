@@ -31,7 +31,7 @@ def defined_block
   end
 end
 ```
-> `proc` về cơ bản chính là 1 block được đặt tên một proc object. Proc 
+ `proc` về cơ bản chính là 1 block được đặt tên một proc object. Proc 
 ```ruby
 number_squared = Proc.new { |n| n * n }
 ```
@@ -61,6 +61,13 @@ number_squared = Proc.new { |n| n * n }
 > `eager_load` về cơ bản chỉ là `includes` dùng kết hợp với `references` để có OUTER JOIN
 
 - Có những loại sessions nào trong Rails? Cookie-Session hoạt động như thế nào?
+> Có 4 loại sessions trong Rails: 
+> - Cookies-Session (Default) - Session được mã hóa bằng một key nào đó (thông thường là RAILS_MASTER_KEY) rồi trả về cho user trong cookies. Kích thước giới hạn là 4Kb (kích thước giới hạn của cookie)
+> - Database-Session - Được mã hóa và lưu trong database, luôn luôn phải hit database để có session data. 
+> - File-Session - Mã hóa và lưu như một file text trên server, nếu dùng nhiều server thì phải đảm bảo các file cookies đồng độ trên toàn server 
+> - Memory-Session - Mã hóa và lưu ở ram hoặc mem-database như Redis 
+ 
+
 - ORM là gì? Gem nào phổ biết nhất trong Rails cho ORM?
 - Cách sử dụng Polymorphic Association trong Rails?
 - Cách sử dụng STI (Single Table Inheritance) trong Rails như thế nào?
