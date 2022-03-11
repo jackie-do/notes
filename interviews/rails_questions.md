@@ -5,8 +5,16 @@ Câu hỏi chung:
 > `load` sẽ đọc và load file được gọi mỗi khi file đó được chạy
 
 - class methods là gì? instance methods là gì?
+
 - Trong ruby có hỗ trợ đa kế thừa không? Mixin là gì ?
+> Trong Ruby không hỗ trợ đa kế thừa. Mixin về cơ bản chỉ là việc đưa các module code vào 1 class nào đó để class đó có quyền sử dụng các method được định nghĩa trong module. Việc tận dụng Mixin cũng có thể thay thế một phần cho việc đa kế thừa.
+
 - `include`, `extend`, `prepend` khác nhau thế nào trong Ruby?
+> Khi một module được mixin vào trong một class, ta có một số lựa chọn để định nghĩa cách mà các methods trong module được gọi trong class.
+> `include` - các instance methods trong module sẽ được sử dụng như các instance methods trong class đó.nếu trong class đc include có method trùng tên thì nó sẽ gọi method ở class đó  
+> `extend` - các instance methods trong module sẽ được sử dụng như các class methods trong class
+> `prepend` - về cơ bản là y hệt như include nhưng ancestors chain thay đổi khác một chút. nhưng nếu trong class đc prepend có method trùng tên thì nó sẽ gọi method ở module 
+
 - `block`, `proc` và `lambda` là gì? Khác biệt chính giữa `proc` và `lambda`?
 - Sự khác biệt giữa `select` và `detect` khi sử dụng trong một Array?
 - Cách gọi một method với bằng string, với string là tên method. Cách gọi một method bằng string với parameters ?
