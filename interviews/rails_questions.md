@@ -24,6 +24,7 @@ Câu hỏi chung:
 - Kể tên một vài Coding Pattern bạn hay sử dụng?
 - Trong ruby có thể lập trình meta programming, ta dùng hay dùng nhưng cách nào, method nào cho việc lập trình meta programming.
 - Khi gọi method trong một Ruby class, cách Ruby tìm ra method này thế nào? Khi nào sẽ raise exception (no methods)?
+- Giải thích về cách thức hoạt động của Thread trong Ruby? Trong ruby ta có thể lập trình parallel hay concurrent ? Dùng như thế nào.
 
 **Rails**
 - Khác biệt của code trong thư muc `app/services` và thư mục `lib` là gì?
