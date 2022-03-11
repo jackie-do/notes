@@ -1,4 +1,5 @@
 Câu hỏi chung:
+--
 **Ruby**
 - `require` và `load` khác nhau thế nào trong Ruby?
 > `require` sẽ đọc và load file được gọi một lần duy nhất. Ở những lần sau nó sẽ kiểm trả lại file đã được gọi chưa là lấy kết quả của lần gọi trước được lưu trong bộ nhớ nếu có.
@@ -72,7 +73,8 @@ number_squared = Proc.new { |n| n * n }
 - Cách sử dụng Polymorphic Association trong Rails?
 - Cách sử dụng STI (Single Table Inheritance) trong Rails như thế nào?
 
-### Senior level:
+
+## Senior level:
 **Ruby**
 - Kể tên một vài Coding Pattern bạn hay sử dụng?
 - Trong ruby có thể lập trình meta programming, ta dùng hay dùng nhưng cách nào, method nào cho việc lập trình meta programming.
