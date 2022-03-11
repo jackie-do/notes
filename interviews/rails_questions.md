@@ -8,7 +8,7 @@ Câu hỏi chung:
 - class methods là gì? instance methods là gì?
 
 - Trong ruby có hỗ trợ đa kế thừa không? Mixin là gì ?
-> Trong Ruby không hỗ trợ đa kế thừa. Mixin về cơ bản chỉ là việc đưa các module code vào 1 class nào đó để class đó có quyền sử dụng các method được định nghĩa trong module. Việc tận dụng Mixin cũng có thể thay thế một phần cho việc đa kế thừa.
+> Trong Ruby không hỗ trợ đa kế thừa. Mixin về cơ bản chỉ là việc đưa các module code vào 1 class nào đó để class đó có quyền sử dụng các method được định nghĩa trong module giúp tận dụng lại logic. Việc tận dụng Mixin cũng có thể thay thế một phần cho việc đa kế thừa.
 
 - `include`, `extend`, `prepend` khác nhau thế nào trong Ruby?
 > Khi một module được mixin vào trong một class, ta có một số lựa chọn để định nghĩa cách mà các methods trong module được gọi trong class.
@@ -20,15 +20,46 @@ Câu hỏi chung:
 > `prepend` - về cơ bản là y hệt như include nhưng ancestors chain thay đổi khác một chút. nhưng nếu trong class đc prepend có method trùng tên thì nó sẽ gọi method ở module 
 
 - `block`, `proc` và `lambda` là gì? Khác biệt chính giữa `proc` và `lambda`?
-- Sự khác biệt giữa `select` và `detect` khi sử dụng trong một Array?
-- Cách gọi một method với bằng string, với string là tên method. Cách gọi một method bằng string với parameters ?
-- Công dụng của `attr_reader`, `attr_writter`, `attr_accessor`
-- Một class con kế thừa từ một class cha thì method `super` dùng để làm gì?
+> `block` là block đơn giản là một khối mã gồm tất cả những gì bên trong `{}` hoặc `do end`. Mọi thứ trong ruby đều là object trừ block
+```ruby
+def defined_block
+  # Oneline defination
+  [1,2,3].each { |x| puts x*x }
+  # Multi-line defination
+  [1,2,3].each do |x|
+    puts x*x
+  end
+end
+```
+> `proc` về cơ bản chính là 1 block được đặt tên một proc object. Proc 
+```ruby
+number_squared = Proc.new { |n| n * n }
+```
+> `lambda` là một proc object đặc biệt. Khác biệt lớn nhất của proc và lambda là khi không truyền đủ tham số thì lambda sẽ báo lỗi.
 
+- Sự khác biệt giữa `select` và `detect` khi sử dụng trong một Array?
+> `select` trả về một mảng thỏa điều kiện còn `detect`chỉ trả về 1 phần tử đầu tiên thỏa điều kiện. 
+
+- Công dụng của `attr_reader`, `attr_writter`, `attr_accessor`
+> `attr_reader` auto map với instance variable cùng tên, cho phép read từ bên ngoài 
+> `attr_writter` auto map với instance variable cùng tên, cho phép update từ bên ngoài 
+> `attr_accessor` kết hợp của 2 cái trên 
+
+
+- Một class con kế thừa từ một class cha thì method `super` dùng để làm gì?
+> gọi lại method cha cùng tên ở method sử dựng super 
 
 **Rails**
 - Sự khác nhau giữa `find` và `find_by` ? Làm các nào để sử dụng `find_by` đem lại kết của giống như `find`
-- Sự khác nhau giữa `includes` và `eager_load`. Ưu điểm của mỗi cái 
+> `find` chỉ tìm column id còn `find_by` hỗ trợ tìm trên nhiều columns khác. `find` raise exception khi không thấy còn find_by thì trả về nil 
+
+> sử dụng find_by! để raise exception khi không tìm thấy 
+
+
+- Sự khác nhau giữa `includes` và `eager_load`. Ưu điểm của mỗi cái
+> Nếu chỉ dùng `includes` không dùng where thì sẽ tương tự preload, ActiveRecord sẽ load các quan hệ tương ứng với từng câu SQL riêng biệt. Nếu dùng `includes` kết hợp where thì sẽ trở thành 1 câu SQL dùng OUTER JOIN. Chúng ta có để force includes trở thành OUTER JOIN mà không cần `where` khi kết hợp với `references`
+> `eager_load` về cơ bản chỉ là `includes` dùng kết hợp với `references` để có OUTER JOIN
+
 - Có những loại sessions nào trong Rails? Cookie-Session hoạt động như thế nào?
 - ORM là gì? Gem nào phổ biết nhất trong Rails cho ORM?
 - Cách sử dụng Polymorphic Association trong Rails?
