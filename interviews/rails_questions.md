@@ -76,30 +76,61 @@ number_squared = Proc.new { |n| n * n }
 
 ## Senior level:
 **Ruby**
-- Kể tên một vài Coding Pattern bạn hay sử dụng?
+- Kể tên một vài Coding Pattern bạn hay sử dụng? Sử dụng trong trường hợp nào ?
+> `facades`, `decorator`, `interactor`, `strategy`, `observer`, `singleton` ...
+
 - Trong ruby có thể lập trình meta programming, ta dùng hay dùng nhưng cách nào, method nào cho việc lập trình meta programming.
+
 - Khi gọi method trong một Ruby class, cách Ruby tìm ra method này thế nào? Khi nào sẽ raise exception (no methods)?
 - Giải thích về cách thức hoạt động của Thread trong Ruby? Trong ruby ta có thể lập trình parallel hay concurrent ? Dùng như thế nào.
 
 **Rails**
 - Khác biệt của code trong thư muc `app/services` và thư mục `lib` là gì?
+> Trong thư mục `services` sẽ chứa các code có liên quan tới business của project, khó có thể tái sử dụng ở project khác, trong thư mục `lib` là các thư viện độc lập, hoàn toàn có thể sử dụng ở project khác nếu cần. 
 - Khi có một request tới server và được xử lý bởi controller, thì controller đó sẽ init một instance của chính nó để xử lý hay là xử lý bằng chính class đó?
+> Controller sẽ init một instance mới 
+
 - Cách hoạt động của Authentication Token trong một Form ở Rails?
+>
+
 - Giả sử ta có một model User với data hơn 1 triệu dòng, ta có nên dùng đoạn code bên dưới để đọc tuần tự data tất cả users hay không? Có vấn đề gì xảy ra không?
 ```ruby
 User.all.each do |u|
 	# your logic
 end
 ```
+> Không nên vì sẽ load 1 triệu record này vào ram, sẽ tốt ram. Tốt nhất nên dùng `find_each` hoặc `find_in_batch` để query theo từng batch tránh chiếm dụng bộ nhớ.
 - Có các loại joins nào trong Postgresql? Cú pháp joins default của ActiveRecord là gì? Cú pháp outer join của ActiveRecord là gì?  
-(INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN , SELF JOIN)
+ > (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN , SELF JOIN)
+
 - Để viết các câu SQL phức tạp mà ActiveRecord không support đủ thì ngoại trừ viết string query thì còn có những gem nào hỗ trợ không?
+> Có thể viết SQL thuần, dùng Arel hay Sequel để hỗ trợ việc viết query 
+
 - Khác biệt giữa TRUNCATE và DELETE ALL trong database là gì?
-- Tính hiệu quả khi đánh index trên columns. Giả sử ta có table `peoples` với column `id`, `name`, `email` nếu ta đánh index trên column `name` thì những cú pháp nào sẽ tận dụng đc index 
+> TRUNCATE xóa data và reset ID number 
+
+- Tính hiệu quả khi đánh index (B-tree) trên columns. Giả sử ta có table `peoples` với column `id`, `name`, `email` nếu ta đánh index trên column `name` thì những cú pháp nào sẽ tận dụng đc index.
 ```SQL
 ; case 1
 SELECT id, email
 FROM people
-WHERE name LIKE ''
+WHERE name LIKE '%searched_name%'
+
+; case 2
+SELECT id, email
+FROM people
+WHERE name LIKE 'searched_name%'
+
+; case 3
+SELECT id, email
+FROM people
+WHERE name LIKE '%searched_name'
+
+; case 4
+SELECT id, email
+FROM people
+WHERE name LIKE 'searched_name'
 ```
+> Chỉ có case 2 4 là dùng được index. Ngoài ra với số lượng record dưới 10k thì việc đánh index cũng không thực sự cần thiết 
+
 - Một bài toán Design Database
