@@ -7,4 +7,11 @@
 
 > no live upstreams while connecting to upstream, client: 42.112.224.234, server: staging.arches-global.com, request: "OPTION
 
+- Solution
 
+```bash
+location / {
+    proxy_ssl_server_name on; # This line is important when proxy with https
+    proxy_pass https://my_upstream;
+  }
+```
