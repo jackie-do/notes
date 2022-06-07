@@ -1,5 +1,6 @@
 
 ## Config for Proxy
+http://nginx.org/en/docs/http/ngx_http_proxy_module.html
 
 #### Issue 1
 *You may face with issues below*
