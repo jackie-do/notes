@@ -1,6 +1,7 @@
 # Config Nginx to proxy to a s3 statis host
 
 > s3 statis host: **http://bucket-name.s3-website-ap-southeast-1.amazonaws.com**
+
 > nginx address: **origin.com**
 
 
