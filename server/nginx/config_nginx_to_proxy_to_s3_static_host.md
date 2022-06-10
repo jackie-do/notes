@@ -6,6 +6,9 @@
 
 
 ## 1) Enable nginx to allow show proxy log
+- Enable to track proxy requests and format the log to show that
+- Proxy to S3 statis host (not normal s3 bucket)
+
 ```bash
 # /etc/nginx/site-enable/default
 
