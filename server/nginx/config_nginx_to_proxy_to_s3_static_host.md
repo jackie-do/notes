@@ -4,8 +4,8 @@
 
 > nginx address: **origin.com**
 
-
-## 1) Enable nginx to allow show proxy log
+## Option 1: Simple way ()
+*Note: not work with encode urls*
 - Enable to track proxy requests and format the log to show that
 - Proxy to S3 statis host (not normal s3 bucket)
 
