@@ -1,5 +1,5 @@
 
-
+```bash
 # https://stackoverflow.com/a/14061796/2237879
 #
 # This hack allows you to run make commands with any set of arguments.
@@ -67,3 +67,4 @@ c: run-console
 g: run-generate
 
 s: run-rails
+```
