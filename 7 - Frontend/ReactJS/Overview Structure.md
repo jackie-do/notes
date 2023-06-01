@@ -1,7 +1,3 @@
-# ReactJS Project Name
-
-describe about this project
-
 ## Project Structure
 
 ```bash
